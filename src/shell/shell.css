@@ -1,0 +1,91 @@
+.shell-pager {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform: translateY(-50%);
+}
+
+.shell-pager__item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 4px 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  mix-blend-mode: difference;
+}
+
+.shell-pager__label {
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  white-space: nowrap;
+}
+
+.shell-pager__item:hover .shell-pager__label,
+.shell-pager__item:focus-visible .shell-pager__label {
+  opacity: 1;
+  transform: none;
+}
+
+.shell-pager__num {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+.shell-pager__item.is-active {
+  color: #fff;
+}
+
+.shell-pager__item.is-active .shell-pager__num {
+  background: #fff;
+  color: #000;
+}
+
+.shell-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: #1b0f0b;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.shell-curtain__mask {
+  overflow: hidden;
+  display: block;
+}
+
+.shell-curtain__word {
+  display: block;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(48px, 9vw, 140px);
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .shell-pager {
+    top: auto;
+    bottom: 96px;
+    right: 12px;
+    transform: none;
+  }
+}

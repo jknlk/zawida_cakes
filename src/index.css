@@ -5,15 +5,11 @@
 html,
 body {
   margin: 0;
-  height: 100%;
-  overflow: hidden;
-}
-
-#root {
-  height: 100%;
 }
 
 body {
+  background: #1b0f0b;
+  overflow-x: hidden;
   font-family: 'Poppins', system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: #fff;
 }

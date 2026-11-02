@@ -1,0 +1,536 @@
+.zw {
+  --c1: #c21f3a;
+  --c2: #e23a56;
+  --tint: #fde6e8;
+  --tint2: #f7b9c1;
+  --ink: #2a1712;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+  /* the blobs run past the hero's bottom edge onto the next section;
+     sides and top stay clipped */
+  overflow: visible;
+  clip-path: inset(0 0 -18vh 0);
+  z-index: 4;
+  background: var(--tint);
+  color: #fff;
+  font-family: 'Poppins', system-ui, sans-serif;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.zw img {
+  display: block;
+  -webkit-user-drag: none;
+}
+
+.zw-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- blobs ---------- */
+.zw-blob-wrap {
+  position: absolute;
+  pointer-events: none;
+}
+.zw-blob-wrap svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.zw-blob-wrap--main {
+  left: -14vw;
+  top: -22vh;
+  width: 74vw;
+  height: 132vh;
+  z-index: 1;
+  filter: drop-shadow(18px 24px 40px rgba(0, 0, 0, 0.12));
+}
+.zw-blob-wrap--soft {
+  right: -18vw;
+  bottom: -14vh;
+  width: 56vw;
+  height: 72vh;
+  z-index: 0;
+}
+.zw-blob--soft {
+  fill: var(--tint2);
+}
+
+/* ---------- nav ---------- */
+.zw-nav {
+  position: absolute;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 7vw 0;
+}
+.zw-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.zw-logo small {
+  font-weight: 500;
+  opacity: 0.8;
+}
+.zw-logo__mark {
+  width: 34px;
+  height: 34px;
+}
+.zw-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 6px 6px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.zw-links a,
+.zw-links button {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.zw-links a:hover,
+.zw-links button:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--c1);
+}
+.zw-cart {
+  position: relative;
+  display: grid !important;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0 !important;
+  margin-left: 4px;
+  background: var(--c1) !important;
+  color: #fff !important;
+}
+.zw-cart svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.zw-cart__count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- copy ---------- */
+.zw-copy {
+  position: absolute;
+  z-index: 4;
+  left: 7vw;
+  top: 50%;
+  width: min(560px, 42vw);
+  transform: translateY(-46%);
+}
+.zw-eyebrow {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.zw-title {
+  margin: 14px 0 20px;
+  font-weight: 800;
+  font-size: clamp(48px, 6.4vw, 120px);
+  line-height: 0.96;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+.zw-title__line1 {
+  display: flex;
+  align-items: center;
+}
+.zw-title__line2 {
+  display: block;
+  white-space: nowrap;
+  min-height: 0.96em;
+}
+.zw-o {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: 0.74em;
+  height: 0.74em;
+  margin: 0 0.04em;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.05em rgba(255, 255, 255, 0.95), 0 0.08em 0.2em rgba(0, 0, 0, 0.25);
+}
+.zw-o img {
+  position: absolute;
+  inset: -6%;
+  width: 112%;
+  height: 112%;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  animation: zw-spin 16s linear infinite;
+}
+.zw-o img.is-on {
+  opacity: 1;
+}
+.zw-desc {
+  max-width: 440px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.86);
+}
+.zw-buy {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 28px;
+}
+.zw-price {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+}
+.zw-price small {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.75;
+}
+.zw-btn {
+  height: 52px;
+  padding: 0 30px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--c1);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+.zw-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.24);
+}
+.zw-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* ---------- thumbnails ---------- */
+.zw-thumbs {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  margin-top: 46px;
+  padding-bottom: 16px;
+  outline: none;
+}
+.zw-thumb {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  padding: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+.zw-thumb img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: scale(1.12);
+}
+.zw-thumb:hover {
+  transform: translateY(-4px) scale(1.06);
+}
+.zw-thumb.is-active {
+  border-color: #fff;
+}
+.zw-thumb:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+.zw-thumbs__bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 24px;
+  height: 3px;
+  border-radius: 3px;
+  background: #fff;
+  transform-origin: left center;
+}
+
+/* ---------- cake stage ---------- */
+.zw-stage {
+  position: absolute;
+  z-index: 3;
+  left: 67%;
+  top: 54%;
+  width: min(46vw, 80vh);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  pointer-events: none;
+}
+.zw-spin {
+  position: absolute;
+  inset: 0;
+  animation: zw-spin 70s linear infinite;
+}
+.zw-tart {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(14px 34px 30px rgba(40, 15, 5, 0.32));
+  will-change: transform, opacity;
+}
+.zw-plate-shadow {
+  position: absolute;
+  left: 12%;
+  right: 4%;
+  top: 22%;
+  bottom: -4%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(40, 15, 5, 0.35), transparent);
+  filter: blur(26px);
+}
+
+/* ---------- footer + toast ---------- */
+.zw-foot {
+  position: absolute;
+  z-index: 4;
+  left: 7vw;
+  bottom: 26px;
+  display: flex;
+  gap: 40px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+}
+.zw-count b {
+  color: #fff;
+}
+.zw-toast {
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  bottom: 30px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: #1b0f0b;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, 24px);
+  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.zw-toast.is-on {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.zw-scroll {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  translate: -50% 0;
+  color: var(--c1);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.zw-scroll i {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 34px;
+  border: 2px solid currentColor;
+  border-radius: 12px;
+}
+.zw-scroll i::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 3px;
+  height: 7px;
+  margin-left: -1.5px;
+  border-radius: 2px;
+  background: currentColor;
+  animation: zw-scroll 1.8s ease-in-out infinite;
+}
+@keyframes zw-scroll {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(10px); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes zw-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 899px) {
+  .zw-blob-wrap--main {
+    left: -45vw;
+    top: -34vh;
+    width: 190vw;
+    height: 100vh;
+  }
+  .zw-blob-wrap--soft {
+    right: -40vw;
+    bottom: -12vh;
+    width: 120vw;
+    height: 60vh;
+  }
+  .zw-nav {
+    padding: 18px 6vw 0;
+  }
+  .zw-links > :not(.zw-cart) {
+    display: none;
+  }
+  .zw-links {
+    padding: 4px;
+  }
+  .zw-copy {
+    left: 6vw;
+    right: 6vw;
+    top: 84px;
+    width: auto;
+    transform: none;
+  }
+  .zw-title {
+    font-size: 13vw;
+    margin: 10px 0 12px;
+  }
+  .zw-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 92%;
+  }
+  .zw-buy {
+    margin-top: 16px;
+    gap: 16px;
+  }
+  .zw-price {
+    font-size: 18px;
+  }
+  .zw-btn {
+    height: 44px;
+    padding: 0 20px;
+  }
+  .zw-thumbs {
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .zw-thumb {
+    width: 44px;
+    height: 44px;
+    padding: 2px;
+  }
+  .zw-stage {
+    left: 56%;
+    top: auto;
+    bottom: -14vw;
+    width: 80vw;
+    translate: -50% 0;
+  }
+  .zw-foot,
+  .zw-scroll {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zw-o img,
+  .zw-spin {
+    animation: none;
+  }
+}
+
+/* ---------- wavy bottom edge, matching the sections below ----------
+   The hero overlaps the About section by one --curve and is masked with the
+   same irregular wave (started at a different point so they never line up).
+   About already leaves --curve of room at its top for this. */
+.zw {
+  --curve: clamp(28px, 3.5vw, 52px);
+  --wave-w: clamp(900px, 100vw, 1600px);
+  /* one wave taller than the screen, so the first view is only the hero */
+  height: calc(100vh + var(--curve));
+  height: calc(100svh + var(--curve));
+  min-height: calc(560px + var(--curve));
+  margin-bottom: calc(-1 * var(--curve));
+  z-index: 10;
+  -webkit-mask:
+    linear-gradient(#000 0 0) top left / 100% calc(100% - var(--curve) + 1px) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1200V22C1145 22 1145 32 1090 32C1040 32 1040 18 990 18C935 18 935 36 880 36C825 36 825 12 770 12C710 12 710 34 650 34C605 34 605 26 560 26C505 26 505 6 450 6C390 6 390 38 330 38C280 38 280 30 230 30C170 30 170 8 110 8C55 8 55 22 0 22Z'/%3E%3C/svg%3E") calc(var(--wave-w) * -0.62) 100% / var(--wave-w) var(--curve) repeat-x;
+  mask:
+    linear-gradient(#000 0 0) top left / 100% calc(100% - var(--curve) + 1px) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1200V22C1145 22 1145 32 1090 32C1040 32 1040 18 990 18C935 18 935 36 880 36C825 36 825 12 770 12C710 12 710 34 650 34C605 34 605 26 560 26C505 26 505 6 450 6C390 6 390 38 330 38C280 38 280 30 230 30C170 30 170 8 110 8C55 8 55 22 0 22Z'/%3E%3C/svg%3E") calc(var(--wave-w) * -0.62) 100% / var(--wave-w) var(--curve) repeat-x;
+}
+/* keep the bottom UI where it was on screen, clear of the wave below the fold */
+.zw-foot {
+  bottom: calc(26px + var(--curve));
+}
+.zw-scroll {
+  bottom: calc(22px + var(--curve));
+}
+.zw-toast {
+  bottom: calc(30px + var(--curve));
+}
